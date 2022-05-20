@@ -1,0 +1,119 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "title": "Покупки",
+      "color": "green",
+      "tasks": [
+        {
+          "id": 0,
+          "text": "Макарошки",
+          "isComplete": false
+        },
+        {
+          "id": 1,
+          "text": "Картошку",
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "text": "Биткоины",
+          "isComplete": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Фронтенд",
+      "color": "blue",
+      "tasks": [
+        {
+          "id": 0,
+          "text": "Изучить JavaScript",
+          "isComplete": false
+        },
+        {
+          "id": 1,
+          "text": "Изучить паттерны проектирования",
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
+          "isComplete": false
+        },
+        {
+          "id": 3,
+          "text": "Redux (redux-observable, redux-saga)",
+          "isComplete": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Фильмы",
+      "color": "pink",
+      "tasks": [
+        {
+          "id": 0,
+          "text": "Мстители",
+          "isComplete": false
+        },
+        {
+          "id": 1,
+          "text": "Форсаж",
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "text": "Я робот",
+          "isComplete": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Книги",
+      "color": "lightgreen",
+      "tasks": [
+        {
+          "id": 0,
+          "text": "JavaScript. The Definitive Guide",
+          "isComplete": false
+        },
+        {
+          "id": 1,
+          "text": "ReactJS from scratch",
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "text": "Learning MongoDB Part II",
+          "isComplete": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Личное",
+      "color": "gray",
+      "tasks": [
+        {
+          "id": 0,
+          "text": "Зубная паста",
+          "isComplete": false
+        },
+        {
+          "id": 1,
+          "text": "Мыло",
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "text": "Бритва",
+          "isComplete": false
+        }
+      ]
+    }
+  ]
+}

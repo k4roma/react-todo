@@ -1,0 +1,33 @@
+.tasks__title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  margin-bottom: 20px;
+  background-color: #f2f2f2;
+}
+
+.tasks-list {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+  &__item {
+    list-style: none;
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
