@@ -10,17 +10,29 @@ function App() {
   const [activeFolder, setActiveFolder] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/todos')
-    .then(response => response.json())
-    .then(todos => setFolders(todos));
+    fetch("http://localhost:3001/todos")
+      .then((response) => response.json())
+      .then((todos) => setFolders(todos));
   }, []);
 
   const handleFolderClick = (id) => {
-    setActiveFolder(folders[id]);
+    const newActiveFolder = folders.find((folder) => folder.id === id);
+    setActiveFolder(newActiveFolder);
   };
 
   const handleShowAll = () => {
-    setActiveFolder(null)
+    setActiveFolder(null);
+  };
+
+  const handleDeleteFolder = (e, id, activeId) => {
+    e.stopPropagation();
+    const newFolders = folders.filter((folder) => {
+      return folder.id !== id;
+    });
+    setFolders(newFolders);
+    if (activeId === id) {
+      setActiveFolder(null);
+    }
   };
 
   return (
@@ -29,13 +41,18 @@ function App() {
         <Button onClick={handleShowAll} className="btn" icon={<ListIcon />}>
           Все задачи
         </Button>
-        <FolderList folders={folders} activeFolder={activeFolder} onFolderClick={handleFolderClick} />
+        <FolderList
+          folders={folders}
+          activeFolder={activeFolder}
+          onFolderClick={handleFolderClick}
+          onDeleteClick={handleDeleteFolder}
+        />
         <Button className="btn" icon={<AddIcon />}>
           Добавить список
         </Button>
       </div>
       <div className="todo__tasks">
-        <TaskList taskFolder={activeFolder} folders={folders} />
+        <TaskList activeFolder={activeFolder} folders={folders} />
       </div>
     </div>
   );

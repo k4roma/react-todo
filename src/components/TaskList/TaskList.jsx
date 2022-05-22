@@ -1,21 +1,24 @@
 import "./TaskList.scss";
-import AllFoldersTasks from './AllFoldersTasks';
+import AllFoldersTasks from "./AllFoldersTasks";
 
-const TaskList = ({taskFolder, folders}) => {
-  return taskFolder ? (
+const TaskList = ({activeFolder, folders}) => {
+  return activeFolder ? (
       <ul className="tasks-list">
-        <h2 className={`tasks__title ${taskFolder.color}`}>{taskFolder.title}</h2>
+        <h2 className={`tasks__title ${activeFolder.color}`}>
+          {activeFolder.title}
+        </h2>
         <hr/>
-        {
-          taskFolder?.tasks?.map((task) => {
-            return (
-                <li key={task.id} className="tasks-list__item">
-                  {task.text}
-                </li>
-            );
-          })}
+        {activeFolder?.tasks?.map((task) => {
+          return (
+              <li key={task.id} className="tasks-list__item">
+                {task.text}
+              </li>
+          );
+        })}
       </ul>
-  ) : <AllFoldersTasks folders={folders}/>
+  ) : (
+      <AllFoldersTasks folders={folders}/>
+  );
 };
 
 export default TaskList;
