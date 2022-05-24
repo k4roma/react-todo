@@ -1,5 +1,8 @@
+@import "../../scss/variables";
+
 .folder-list {
   width: 100%;
+  max-height: 450px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,12 +15,12 @@
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #dbdddf;
+    background-color: $color-gray-light;
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #bebebe;
+    background-color: $color-gray-dark;
     border-radius: 4px;
   }
 
@@ -42,14 +45,15 @@
     }
 
     &:hover {
-      background: #FFFFFF;
-      box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+      background: $color-white;
+      box-shadow: 0 0 4px 1px rgba($color-full-black, 0.1);
       border-radius: 4px;
       transition: .4s;
 
       .remove-btn {
         svg {
           opacity: 0.3;
+          transition: .2s;
         }
       }
     }
@@ -80,8 +84,8 @@
   }
 
   .active {
-    background: #FFFFFF;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+    background: $color-white;
+    box-shadow: 0 0 4px 1px rgba($color-full-black, 0.1);
     border-radius: 4px;
     transition: .4s;
   }
@@ -107,35 +111,35 @@
       display: block;
 
       &--green {
-        background-color: #42B883;
+        background-color: $color-green;
       }
 
       &--blue {
-        background-color: #64C4ED;
+        background-color: $color-blue;
       }
 
       &--pink {
-        background-color: #FFBBCC;
+        background-color: $color-pink;
       }
 
       &--lightgreen {
-        background-color: #B6E6BD;
+        background-color: $color-lightgreen;
       }
 
       &--purple {
-        background-color: #C355F5;
+        background-color: $color-purple;
       }
 
       &--coral {
-        background-color: #FF6464;
+        background-color: $color-coral;
       }
 
       &--gray {
-        background-color: #C9D1D3;
+        background-color: $color-gray;
       }
 
       &--black {
-        background-color: #09011A;
+        background-color: $color-black;
       }
     }
   }

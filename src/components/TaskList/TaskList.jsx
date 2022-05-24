@@ -1,5 +1,4 @@
 import "./TaskList.scss";
-import AllFoldersTasks from "./AllFoldersTasks";
 
 const TaskList = ({activeFolder, folders}) => {
   return activeFolder ? (
@@ -17,7 +16,21 @@ const TaskList = ({activeFolder, folders}) => {
         })}
       </ul>
   ) : (
-      <AllFoldersTasks folders={folders}/>
+      folders.map((folder) => {
+        return (
+            <ul key={folder.id} className="tasks-list">
+              <h2 className={`tasks__title ${folder.color}`}>{folder.title}</h2>
+              <hr/>
+              {folder?.tasks?.map((task) => {
+                return (
+                    <li key={task.id} className="tasks-list__item">
+                      {task.text}
+                    </li>
+                );
+              })}
+            </ul>
+        );
+      })
   );
 };
 

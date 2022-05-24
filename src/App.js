@@ -4,10 +4,13 @@ import { ReactComponent as AddIcon } from "./assets/icons/add.svg";
 import FolderList from "./components/FolderList/FolderList";
 import TaskList from "./components/TaskList/TaskList";
 import Button from "./components/UI/Button/Button";
+import AddFolderModal from "./components/AddFolderForm/AddFolderModal";
 
 function App() {
   const [folders, setFolders] = useState([]);
   const [activeFolder, setActiveFolder] = useState(null);
+  const [addFolderForm, setAddFolderForm] = useState({ isVisible: false });
+  const [addFolderInputValue, setAddFolderInputValue] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3001/todos")
@@ -35,6 +38,37 @@ function App() {
     }
   };
 
+  const toggleAddFolder = (e) => {
+    e.preventDefault();
+    if (addFolderForm.isVisible === true) {
+      setAddFolderForm({ isVisible: false });
+      setAddFolderInputValue("");
+    } else {
+      setAddFolderForm({ isVisible: true });
+    }
+  };
+
+  const onAddFolderInputChange = (e) => {
+    e.preventDefault();
+    setAddFolderInputValue(e.target.value);
+  };
+
+  const onAddFolderClick = (e) => {
+    e.preventDefault();
+
+    const newFolderData = {
+      id: Date.now(),
+      title: addFolderInputValue,
+      color: "blue",
+    };
+
+    if (addFolderInputValue) {
+      setFolders([...folders, newFolderData]);
+      setAddFolderInputValue("");
+      setAddFolderForm({ isVisible: false });
+    }
+  };
+
   return (
     <div className="todo-app">
       <div className="todo__sidebar">
@@ -47,9 +81,16 @@ function App() {
           onFolderClick={handleFolderClick}
           onDeleteClick={handleDeleteFolder}
         />
-        <Button className="btn" icon={<AddIcon />}>
+        <Button onClick={toggleAddFolder} className="btn" icon={<AddIcon />}>
           Добавить список
         </Button>
+        <AddFolderModal
+            onCloseClick={toggleAddFolder}
+            onAddFolderClick={onAddFolderClick}
+            onInputChange={onAddFolderInputChange}
+            formState={addFolderForm}
+            inputState={addFolderInputValue}
+        />
       </div>
       <div className="todo__tasks">
         <TaskList activeFolder={activeFolder} folders={folders} />
