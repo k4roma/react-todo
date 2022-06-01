@@ -73,7 +73,7 @@ function App() {
       color: addFolderFormColor,
     };
 
-    if (addFolderInputValue) {
+    if (addFolderInputValue && addFolderFormColor) {
       setFolders([...folders, newFolderData]);
       setAddFolderInputValue("");
       setAddFolderFormColor(null);
