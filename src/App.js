@@ -10,12 +10,17 @@ function App() {
   const [folders, setFolders] = useState([]);
   const [activeFolder, setActiveFolder] = useState(null);
   const [addFolderForm, setAddFolderForm] = useState({ isVisible: false });
+  const [addFolderFormColor, setAddFolderFormColor] = useState(null);
   const [addFolderInputValue, setAddFolderInputValue] = useState("");
+  const [colors, setColors] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/todos")
       .then((response) => response.json())
       .then((todos) => setFolders(todos));
+    fetch("http://localhost:3001/colors")
+      .then((response) => response.json())
+      .then((colors) => setColors(colors));
   }, []);
 
   const handleFolderClick = (id) => {
@@ -46,6 +51,12 @@ function App() {
     } else {
       setAddFolderForm({ isVisible: true });
     }
+    setAddFolderFormColor(null);
+  };
+
+  const onColorInputChange = (e) => {
+    e.stopPropagation();
+    setAddFolderFormColor(e.target.value);
   };
 
   const onAddFolderInputChange = (e) => {
@@ -59,12 +70,13 @@ function App() {
     const newFolderData = {
       id: Date.now(),
       title: addFolderInputValue,
-      color: "blue",
+      color: addFolderFormColor,
     };
 
     if (addFolderInputValue) {
       setFolders([...folders, newFolderData]);
       setAddFolderInputValue("");
+      setAddFolderFormColor(null);
       setAddFolderForm({ isVisible: false });
     }
   };
@@ -85,11 +97,13 @@ function App() {
           Добавить список
         </Button>
         <AddFolderModal
-            onCloseClick={toggleAddFolder}
-            onAddFolderClick={onAddFolderClick}
-            onInputChange={onAddFolderInputChange}
-            formState={addFolderForm}
-            inputState={addFolderInputValue}
+          onCloseClick={toggleAddFolder}
+          onAddFolderClick={onAddFolderClick}
+          onColorInputChange={onColorInputChange}
+          onInputChange={onAddFolderInputChange}
+          formState={addFolderForm}
+          inputState={addFolderInputValue}
+          colors={colors}
         />
       </div>
       <div className="todo__tasks">

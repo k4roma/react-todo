@@ -109,38 +109,6 @@
       width: 10px;
       border-radius: 50%;
       display: block;
-
-      &--green {
-        background-color: $color-green;
-      }
-
-      &--blue {
-        background-color: $color-blue;
-      }
-
-      &--pink {
-        background-color: $color-pink;
-      }
-
-      &--lightgreen {
-        background-color: $color-lightgreen;
-      }
-
-      &--purple {
-        background-color: $color-purple;
-      }
-
-      &--coral {
-        background-color: $color-coral;
-      }
-
-      &--gray {
-        background-color: $color-gray;
-      }
-
-      &--black {
-        background-color: $color-black;
-      }
     }
   }
 }

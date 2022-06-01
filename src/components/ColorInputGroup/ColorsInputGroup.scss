@@ -1,0 +1,34 @@
+@import "../../scss/variables";
+
+.colors {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  &__color-container {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  &__color-checkmark {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+  }
+  &__color-input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    &:checked~.colors__color-checkmark {
+      height: 18px;
+      width: 18px;
+      outline: 2px solid $color-gray-dark;
+    }
+  }
+
+}

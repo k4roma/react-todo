@@ -13,7 +13,7 @@ const FolderList = ({
         const hasFolderIcon = folder.icon ? (
           folder.icon
         ) : (
-          <span className={`badge badge--${folder.color}`} />
+          <span className={`badge bg-${folder.color}`} />
         );
         return (
           <li

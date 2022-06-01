@@ -10,7 +10,7 @@
   position: relative;
   top: 20px;
   left: 22px;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +35,6 @@
     border: 1px solid $color-gray-light;
     border-radius: 4px;
     font-size: 14px;
-    margin-bottom: 14px;
   }
   &__add-btn {
     width: 100%;
