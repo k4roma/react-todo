@@ -115,5 +115,14 @@
         }
       ]
     }
+  ],
+  "colors": [
+    {"id": 0, "name": "gray"},
+    {"id": 1, "name": "green"},
+    {"id": 2, "name": "blue"},
+    {"id": 3, "name": "pink"},
+    {"id": 4, "name": "lightgreen"},
+    {"id": 5, "name": "purple"},
+    {"id": 6, "name": "coral"}
   ]
 }
